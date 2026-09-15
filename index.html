@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CraftingLiveGames — Студия разработки программного обеспечения</title>
+    <meta name="description" content="CraftingLiveGames — студия разработки мобильных игр с 2017 года. Путь от моддинга J2ME игр до собственных проектов под Android.">
+    <style>
+        :root {
+            --bg: #0b0f19;
+            --surface: #141a2a;
+            --surface-hover: #1c2438;
+            --accent: #4a9eff;
+            --accent2: #00e5c0;
+            --text: #e8eaf6;
+            --text-dim: #9aa0b5;
+            --radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 16px;
+        }
+
+        .container {
+            max-width: 720px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            padding: 32px 0 24px;
+        }
+
+        .logo {
+            width: 72px;
+            height: 72px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 26px;
+            letter-spacing: -1px;
+            color: #fff;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 32px rgba(74, 158, 255, 0.35);
+        }
+
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+
+        .about {
+            background: var(--surface);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin: 20px 0;
+        }
+
+        .about p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        .about p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .meta-item {
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            padding: 14px 16px;
+        }
+
+        .meta-item .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-dim);
+            margin-bottom: 4px;
+        }
+
+        .meta-item .value {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 24px 0;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--surface);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background: var(--surface-hover);
+            border-color: rgba(74, 158, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            background: rgba(74, 158, 255, 0.15);
+        }
+
+        .btn:nth-child(2) .btn-icon { background: rgba(162, 155, 254, 0.15); }
+        .btn:nth-child(3) .btn-icon { background: rgba(255, 118, 117, 0.15); }
+        .btn:nth-child(4) .btn-icon { background: rgba(253, 203, 110, 0.15); }
+
+        .btn-arrow {
+            margin-left: auto;
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover .btn-arrow {
+            transform: translateX(4px);
+            color: var(--accent2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 32px 0 16px;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--accent2);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            width: 48px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            border-radius: 2px;
+            margin: 0 auto 20px;
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.5rem; }
+            .meta-grid { grid-template-columns: 1fr; }
+            .btn { padding: 14px 16px; gap: 12px; }
+            .btn-icon { width: 36px; height: 36px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">CLG</div>
+            <h1>CraftingLiveGames</h1>
+            <p class="subtitle">Студия разработки программного обеспечения</p>
+        </header>
+
+        <section class="about">
+            <p><strong>CraftingLiveGames</strong> — студия, основанная в 2017 году. Мы прошли путь от моддинга J2ME-игр до разработки собственных проектов под Android.</p>
+            <p>Наши приложения публикуются через издательство <strong>CLG Publisher</strong> и доступны в Google Play, NashStore и RuStore. По вопросам сотрудничества обращайтесь в наши социальные сети или на почту.</p>
+
+            <div class="meta-grid">
+                <div class="meta-item">
+                    <div class="label">Основана</div>
+                    <div class="value">2017 год</div>
+                </div>
+                <div class="meta-item">
+                    <div class="label">Основатель</div>
+                    <div class="value">Шустол Никита Андреевич</div>
+                </div>
+            </div>
+        </section>
+
+        <nav class="links">
+            <a class="btn" href="https://vk.ru/craftinglive" target="_blank" rel="noopener">
+                <span class="btn-icon">💬</span>
+                <span>Мы во ВКонтакте</span>
+                <span class="btn-arrow">→</span>
+            </a>
+            <a class="btn" href="https://github.com/craftinglivegames" target="_blank" rel="noopener">
+                <span class="btn-icon">🐙</span>
+                <span>Наш GitHub</span>
+                <span class="btn-arrow">→</span>
+            </a>
+            <a class="btn" href="https://clgpublisher.xyz" target="_blank" rel="noopener">
+                <span class="btn-icon">🏢</span>
+                <span>Наше издательство — CLG Publisher</span>
+                <span class="btn-arrow">→</span>
+            </a>
+            <a class="btn" href="https://www.donationalerts.com/r/clg_shustol" target="_blank" rel="noopener">
+                <span class="btn-icon">💜</span>
+                <span>Поддержать нас на DonationAlerts</span>
+                <span class="btn-arrow">→</span>
+            </a>
+        </nav>
+
+        <footer>
+            <div class="divider"></div>
+            <p>Сотрудничество: <a href="mailto:craftinglivegames@gmail.com">craftinglivegames@gmail.com</a></p>
+            <p style="margin-top: 8px;">&copy; 2017–<span id="year"></span> CraftingLiveGames. Все права защищены.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
